@@ -1,0 +1,45 @@
+var newCounter;
+var singleLine;
+var title;
+// var dialogue;
+
+// picks a random number
+function picker(){
+	var objLength = Object.keys(newArray).length;
+	var randomNumber = Math.floor(Math.random() * objLength);
+	return randomNumber;
+};
+
+// selects the conversation from the file
+function selecter(){
+	var selectNum = picker();
+	var title = Object.getOwnPropertyNames(newArray)[selectNum];
+	document.getElementById("title").innerHTML = "<b>Selected conversation:</b> " + title;
+	var body = newArray[Object.keys(newArray)[selectNum]];
+	return body;
+};
+
+// splits the dialogue up into an array
+function splitter(){
+	var splitDialogue = selecter().split("<br>");
+	return splitDialogue;
+};
+
+// resets everything from the beginning
+function dialogueInit(){
+	// dialogue = splitter();
+	newCounter = 0;
+	singleLine = newArray[newCounter];
+	printText();
+};
+
+// prints the text to the page and steps through it
+function printText(){
+	if (newCounter < newArray.length) {
+		document.getElementById("dialogue").innerHTML = singleLine;
+		newCounter++;
+		singleLine = singleLine + "<br/>" + newArray[newCounter];
+	} else {
+		dialogueInit();
+	}
+};

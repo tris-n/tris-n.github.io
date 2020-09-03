@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body onLoad="dialogueInit()">
+<script type="text/javascript" src="topic3.js" charset="UTF-8"></script>
+<script type="text/javascript" src="engine.js" charset="UTF-8"></script>
+<script type="text/javascript" src="animal-topics.js" charset="UTF-8"></script>
+<script type="text/javascript" src="proper-topic-3.js" charset="UTF-8"></script>
+<script type="text/javascript">
+
+	// NUMBER SORT
+
+	// the array to rearrange
+	var theArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+	// goal = 1 2 4 3 5 6 8 7
+
+	function numberSorter(){
+		var numberOfLoops = theArray.length / 2;
+		// = 4
+		var i;
+		var x = 0;
+		var newArray = [];
+
+		for (i = 0; i < numberOfLoops; i++) {
+
+			function loopA(){
+				newArray.push(x += 2);
+				newArray.push(x += 1);
+			}
+			
+			function loopB() {
+				newArray.push(x += 2);
+				newArray.push(x -= 1);
+			}
+
+			if (i%2) {
+				//even
+				loopA();
+			} else {
+				// odd
+				loopB();
+			}
+			
+		}
+		console.log(numberOfLoops);
+		console.log(newArray);
+	}
+
+	numberSorter();
+	// for B - do the same formula but change x to -1 and swap loopA and loopB around
+
+</script>
+<style>
+	body {background-color: powderblue; padding-left: 50px;}
+	#title    {color: grey; font-size: 125%;}
+	#dialogue {color: black; font-size: 200%;}
+</style>
+
+<button onclick="printText()">Try it</button>
+
+<p id="title"></p>
+<p id="dialogue"></p>
+
+
+</body>
+</html>
+
+<!-- 
+
+TODO
+- incorporate more than 1 topic file
+- have a topic selector
+[specific topic or random][specific conversation or random]
+- incorporate the audio dialogue
+- reformat the json stuff to be more flexible
+
+-->

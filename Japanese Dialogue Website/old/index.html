@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+var dialogue1 ="なに　が　すき　です　か？<br>\
+nani ga suki desu ka? (what do you like?)<br>\
+[say you like meat and also vegetables]<br>\
+にく　が　すき　です。　やさい　も　すき　です。<br>\
+niku ga suki desu. yasai mo suki desu.<br>\
+さかな　は？<br>\
+sakana wa? (what about fish?)<br>\
+[say you don't like fish]<br>\
+さかな　は　すき　じゃない　です。<br>\
+sakana wa suki janai desu.";
+
+var splitterUpper = dialogue1.split("<br>");
+var newCounter = 0;
+
+var newText = splitterUpper[newCounter];
+
+</script>
+
+<p>Click the button.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+<hr>
+<p id="convDemo"></p>
+
+<script>
+function myFunction() {
+	if (newCounter < splitterUpper.length) {
+ 
+		//document.getElementById("demo").innerHTML = splitterUpper[newCounter];
+        document.getElementById("convDemo").innerHTML = newText;
+   	 newCounter++;
+     newText = newText + "<br/>" + splitterUpper[newCounter];
+     }
+     
+}
+</script>
+
+</body>
+</html>

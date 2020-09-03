@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body onLoad="dialogueInit()">
+<script type="text/javascript" src="dialogue-lesson03.js" charset="UTF-8"></script>
+<script type="text/javascript" src="dialogue-lesson04.js" charset="UTF-8"></script>
+<script type="text/javascript" src="dialogue-lesson07.js" charset="UTF-8"></script>
+<script type="text/javascript" src="dialogue-topic03.js" charset="UTF-8"></script>
+<script type="text/javascript" src="engine15.js" charset="UTF-8"></script>
+<script type="text/javascript" src="menu.js" charset="UTF-8"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+	body {background-color: powderblue; padding-left: 50px;}
+	#title    {color: grey; font-size: 125%;}
+	#dialogue {color: black; font-size: 200%; font-family: 'Noto Sans JP', sans-serif; word-spacing: 30px;}
+</style>
+
+<button onclick="printText()">Try it</button>
+<br>
+
+<!-- <select id="menuLesson" onchange="menuSelected()"></select> -->
+<select id="menuLesson">
+	<option value="Random">Random</option>
+	<option value="0">03 - Doozo yoroshiku</option>
+	<option value="1">04 - Kazoku wa san-nin desu</option>
+	<option value="2">05 - Nani ga suki desu ka</option>
+	<option value="3">07 - Heya ga mittsu arimasu</option>
+</select>
+
+<p id="title"></p>
+<audio id="myAudio" controls="true" src="" type="audio/mpeg"></audio>
+
+<p id="dialogue"></p>
+
+
+
+</body>
+</html>
+
+<!-- 
+
+TODO
+- incorporate more than 1 topic file
+- have a topic selector
+[specific topic or random][specific conversation or random]
+- incorporate the audio dialogue
+- reformat the json stuff to be more flexible
+
+-->

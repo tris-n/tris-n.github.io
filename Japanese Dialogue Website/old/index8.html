@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body onLoad="dialogueInit()">
+<script type="text/javascript" src="topic3.js" charset="UTF-8"></script>
+<script>
+var newCounter;
+var singleLine;
+var title;
+var dialogue;
+
+function picker(){
+	var objLength = Object.keys(externalJSON).length;
+	var randomNumber = Math.floor(Math.random() * objLength);
+	return randomNumber;
+};
+
+function selecter(){
+	var selectNum = picker();
+	var title = Object.getOwnPropertyNames(externalJSON)[selectNum];
+	document.getElementById("title").innerHTML = "<b>Selected conversation:</b> " + title;
+	var body = externalJSON[Object.keys(externalJSON)[selectNum]];
+	return body;
+};
+
+function splitter(){
+	var splitDialogue = selecter().split("<br>");
+	return splitDialogue;
+};
+
+function dialogueInit(){
+	dialogue = splitter();
+	newCounter = 0;
+	singleLine = dialogue[newCounter];
+	printText();
+};
+
+function printText(){
+	if (newCounter < dialogue.length) {
+		document.getElementById("dialogue").innerHTML = singleLine;
+		newCounter++;
+		singleLine = singleLine + "<br/>" + dialogue[newCounter];
+	} else {
+		dialogueInit();
+	}
+};
+
+</script>
+<style>
+	body {background-color: powderblue; padding-left: 50px;}
+	#title    {color: grey; font-size: 125%;}
+	#dialogue {color: black; font-size: 200%;}
+</style>
+
+<button onclick="printText()">Try it</button>
+
+<p id="title"></p>
+<p id="dialogue"></p>
+
+
+</body>
+</html>

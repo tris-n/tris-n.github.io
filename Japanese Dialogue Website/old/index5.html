@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body onLoad="dialogueInit()">
+<script>
+
+var externalJSON = {
+	cando1:"なに　が　すき　です　か？<br>nani ga suki desu ka? (what do you like?)<br>[say you like meat and also vegetables]<br>にく　が　すき　です。　やさい　も　すき　です。<br>niku ga suki desu. yasai mo suki desu.<br>さかな　は？<br>sakana wa? (what about fish?)<br>[say you don't like fish]<br>さかな　は　すき　じゃない　です。<br>sakana wa suki janai desu.",
+    cando2:"いつも　あさごはん　を　たべます　か？<br>itsumo asagohan o tabemasu ka? (do you always eat breakfast?)<br>[say 'yes, you do']<br>はい、たべます。<br>hai, tabemasu.<br>なに　を　よく　たべます　か？<br>nani o yoku tabemasu ka? (what do you often eat?)<br>[say you often eat egg]<br>たまご　を　よく　たべます。<br>tamago o yoku tabemasu.<br>なに　を　よく　のみます　か？<br>nani o yoku nomimasu ka? (what do you often drink?)<br>[say you drink coffee]<br>コーヒー　を　のみます。<br>koohii o nomimasu."};
+
+// var splitDialogue;
+var newCounter;
+var singleLine;
+var title;
+var dialogue;
+
+function picker(){
+	var objLength = Object.keys(externalJSON).length;
+	var randomNumber = Math.floor(Math.random() * objLength);
+	return randomNumber;
+};
+
+function selecter(){
+	var selectNum = picker();
+	var title = Object.getOwnPropertyNames(externalJSON)[selectNum];
+	document.getElementById("title").innerHTML = title;
+	var body = externalJSON[Object.keys(externalJSON)[selectNum]];
+	return body;
+};
+
+function splitter(){
+	var splitDialogue = selecter().split("<br>");
+	return splitDialogue;
+};
+
+function dialogueInit(){
+	dialogue = splitter();
+	newCounter = 0;
+	singleLine = dialogue[newCounter];
+	printText();
+};
+
+function printText(){
+	if (newCounter < dialogue.length) {
+		document.getElementById("dialogue").innerHTML = singleLine;
+		newCounter++;
+		singleLine = singleLine + "<br/>" + dialogue[newCounter];
+	} else {
+		dialogueInit();
+	}
+};
+
+
+
+</script>
+
+<button onclick="printText()">Try it</button>
+
+<p id="title"></p>
+<p id="dialogue"></p>
+
+
+</body>
+</html>
