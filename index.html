@@ -1,8 +1,51 @@
 <!DOCTYPE html>
 <html>
+<head>
+<script type="text/javascript" src="https://unpkg.com/wanakana@4.0.2/umd/wanakana.min.js"></script>
+<style type="text/css">
+	#ime {
+		width: 800px;
+		height: 400px;
+	}
+</style>
+</head>
+
 <body>
+
 <h1>Hello Tristan</h1>
 <p>I'm hosted with GitHub Pages.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5aIXe_sMKC0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <p><a href="/Japanese Dialogue Website/index21.html">Japanese</a></p>
+<textarea id="ime"></textarea>
+<button onclick="romanji()" id="myButton">ROMANJI</button>
+<button onclick="hiragana()" id="myButton">HIRAGANA</button>
+<button onclick="katakana()" id="myButton">KATAKANA</button>
+<script type="text/javascript">
+	function romanji(argument) {
+		var x = document.getElementById("ime").value;
+		// // alert(x);
+		var y = wanakana.toRomaji(x);
+		// alert(y);
+		document.getElementById("ime").value = y;
+	}
+
+	function hiragana(argument) {
+		var x = document.getElementById("ime").value;
+		// // alert(x);
+		var y = wanakana.toHiragana(x);
+		// alert(y);
+		document.getElementById("ime").value = y;
+	}
+
+	function katakana(argument) {
+		var x = document.getElementById("ime").value;
+		// // alert(x);
+		var y = wanakana.toKatakana(x);
+		// alert(y);
+		document.getElementById("ime").value = y;
+	}
+</script>
 </body>
 </html>
